@@ -68,6 +68,7 @@ dnl Check for libraries:
 AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])
 
 dnl Check for header files:
+AC_CHECK_HEADERS_ONCE([getopt.h])
 
 dnl Check for types:
 
