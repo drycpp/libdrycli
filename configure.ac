@@ -90,7 +90,7 @@ AC_SUBST([TEST_CXXFLAGS])
 AC_SUBST([TEST_LDFLAGS])
 
 dnl Check for library functions:
-AC_CHECK_FUNCS_ONCE([getopt_long])
+AC_CHECK_FUNCS_ONCE([getopt getopt_long])
 
 dnl Check for system services:
 
