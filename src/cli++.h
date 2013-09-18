@@ -11,6 +11,7 @@
 #include "cli++/environment.h"
 #include "cli++/feature.h"
 #include "cli++/module.h"
+#include "cli++/option.h"
 #include "cli++/program.h"
 #include "cli++/version.h"
 

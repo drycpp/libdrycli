@@ -5,6 +5,7 @@ libcli___la_SOURCES =     \
   extern.cc               \
   feature.cc              \
   module.cc               \
+  option.cc               \
   program.cc              \
   version.cc
 
@@ -16,5 +17,6 @@ base_pkginclude_HEADERS = \
   extern.h                \
   feature.h               \
   module.h                \
+  option.h                \
   program.h               \
   version.h
