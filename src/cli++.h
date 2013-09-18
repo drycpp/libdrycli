@@ -9,6 +9,7 @@
 
 #include "cli++/feature.h"
 #include "cli++/module.h"
+#include "cli++/program.h"
 #include "cli++/version.h"
 
 #include <map>    /* for std::map */
