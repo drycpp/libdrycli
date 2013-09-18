@@ -44,14 +44,14 @@ program::program(int argc, char* argv[],
     while (opt->name) {
       if (std::isalnum(opt->value)) {
         switch (opt->has_argument) {
-          case no_argument:
+          case option_argument::none:
             short_opts.push_back(opt->value);
             break;
-          case required_argument:
+          case option_argument::required:
             short_opts.push_back(opt->value);
             short_opts.push_back(':');
             break;
-          case optional_argument:
+          case option_argument::optional:
             short_opts.push_back(opt->value);
             short_opts.push_back(':');
             short_opts.push_back(':');

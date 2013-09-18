@@ -7,6 +7,7 @@
 
 namespace cli {
   struct option;
+  enum class option_argument : int;
   using option_handler = std::function<void (int, const char*)>;
 }
 
@@ -17,9 +18,15 @@ namespace cli {
  */
 struct cli::option {
   const char* name;
-  int has_argument;
+  option_argument has_argument;
   int* flag;
   int value;
+};
+
+enum class cli::option_argument : int {
+  none     = 0, /* no_argument */
+  required = 1, /* required_argument */
+  optional = 2, /* optional_argument */
 };
 
 #endif /* CLIXX_OPTION_H */
