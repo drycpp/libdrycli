@@ -11,10 +11,13 @@
 using namespace cli;
 
 program::program(int argc,
-                 char* argv[]) noexcept
-  : _argc(argc),
-    _argv(argv) {
+                 char* argv[]) noexcept {
 
   assert(argc > 0);
   assert(argv != nullptr);
+
+  args.reserve(argc - 1);
+  for (int i = 1; i < argc; i++) {
+    args.push_back(argv[i]);
+  }
 }

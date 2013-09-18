@@ -11,6 +11,7 @@ libcli___la_SOURCES =     \
 base_pkgincludedir = $(includedir)/cli++
 
 base_pkginclude_HEADERS = \
+  arguments.h             \
   environment.h           \
   extern.h                \
   feature.h               \

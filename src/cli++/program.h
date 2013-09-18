@@ -3,6 +3,9 @@
 #ifndef CLIXX_PROGRAM_H
 #define CLIXX_PROGRAM_H
 
+#include "arguments.h"
+#include "environment.h"
+
 namespace cli {
   class program;
 }
@@ -22,6 +25,8 @@ public:
   /**
    * Constructor.
    *
+   * @param argc the argument count
+   * @param argv the argument vector
    * @pre `argc` must greater than zero
    * @pre `argv` must not be `nullptr`
    */
@@ -35,7 +40,7 @@ public:
   /**
    * Move constructor.
    */
-  program(program&& other) noexcept = default;
+  program(program&& other) = default;
 
   /**
    * Destructor.
@@ -50,11 +55,18 @@ public:
   /**
    * Move assignment operator.
    */
-  program& operator=(program&& other) noexcept = default;
+  program& operator=(program&& other) = default;
 
-protected:
-  unsigned int _argc;
-  char** _argv;
+public:
+  /**
+   * The program's environment variables.
+   */
+  const environment env;
+
+  /**
+   * The program's command-line arguments.
+   */
+  arguments args;
 };
 
 #endif /* CLIXX_PROGRAM_H */
