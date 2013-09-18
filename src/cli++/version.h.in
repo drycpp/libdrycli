@@ -1,0 +1,22 @@
+/* This is free and unencumbered software released into the public domain. */
+
+#ifndef CLIXX_VERSION_H
+#define CLIXX_VERSION_H
+
+#include <string> /* for std::string */
+
+#define CLIXX_VERSION_STRING "@PACKAGE_VERSION@"
+#define CLIXX_VERSION_MAJOR  @PACKAGE_VERSION_MAJOR@
+#define CLIXX_VERSION_MINOR  @PACKAGE_VERSION_MINOR@
+#define CLIXX_VERSION_PATCH  @PACKAGE_VERSION_PATCH@
+
+namespace cli {
+  namespace version {
+    const std::string string = CLIXX_VERSION_STRING;
+    const short major = CLIXX_VERSION_MAJOR;
+    const short minor = CLIXX_VERSION_MINOR;
+    const short patch = CLIXX_VERSION_PATCH;
+  }
+}
+
+#endif /* CLIXX_VERSION_H */
