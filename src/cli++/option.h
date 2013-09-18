@@ -3,8 +3,11 @@
 #ifndef CLIXX_OPTION_H
 #define CLIXX_OPTION_H
 
+#include <functional> /* for std::function */
+
 namespace cli {
   struct option;
+  using option_handler = std::function<void (int, const char*)>;
 }
 
 /**

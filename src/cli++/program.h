@@ -5,9 +5,9 @@
 
 #include "arguments.h"
 #include "environment.h"
+#include "option.h"
 
 namespace cli {
-  struct option;
   class program;
 }
 
@@ -31,7 +31,9 @@ public:
    * @pre `argc` must greater than zero
    * @pre `argv` must not be `nullptr`
    */
-  program(int argc, char* argv[], const option* opts = nullptr) noexcept;
+  program(int argc, char* argv[]) noexcept;
+  program(int argc, char* argv[], const option* opts) noexcept;
+  program(int argc, char* argv[], const option* opts, option_handler callback) noexcept;
 
   /**
    * Copy constructor.

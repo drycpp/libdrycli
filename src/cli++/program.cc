@@ -9,6 +9,7 @@
 
 #include <cassert>  /* for assert() */
 #include <cctype>   /* for std::isalnum() */
+#include <unistd.h> /* for getopt() */
 
 #ifdef HAVE_GETOPT_H
 #include <getopt.h> /* for getopt_long() */
@@ -16,56 +17,73 @@
 
 using namespace cli;
 
-program::program(int argc,
-                 char* argv[],
-                 const option* const opts) noexcept {
-
+program::program(int argc, char* argv[]) noexcept {
   assert(argc > 0);
   assert(argv != nullptr);
 
-  if (opts) {
-#ifdef HAVE_GETOPT_LONG
-    std::string short_opts(":");
+  for (int i = 1; i < argc; i++) {
+    args.push_back(argv[i]);
+  }
+}
 
-    {
-      const option* opt = opts;
-      while (opt->name) {
-        if (std::isalnum(opt->value)) {
-          switch (opt->has_argument) {
-            case required_argument:
-              short_opts.push_back(opt->value);
-              short_opts.push_back(':');
-              break;
-            case optional_argument:
-              short_opts.push_back(opt->value);
-              short_opts.push_back(':');
-              short_opts.push_back(':');
-              break;
-            case no_argument:
-            default:
-              break;
-          }
+program::program(int argc, char* argv[],
+                 const option* const opts) noexcept
+  : program(argc, argv, opts, nullptr) {}
+
+program::program(int argc, char* argv[],
+                 const option* const opts,
+                 option_handler callback) noexcept {
+  assert(argc > 0);
+  assert(argv != nullptr);
+  assert(opts != nullptr);
+
+  std::string short_opts(":");
+
+  {
+    const option* opt = opts;
+    while (opt->name) {
+      if (std::isalnum(opt->value)) {
+        switch (opt->has_argument) {
+          case no_argument:
+            short_opts.push_back(opt->value);
+            break;
+          case required_argument:
+            short_opts.push_back(opt->value);
+            short_opts.push_back(':');
+            break;
+          case optional_argument:
+            short_opts.push_back(opt->value);
+            short_opts.push_back(':');
+            short_opts.push_back(':');
+            break;
+          default:
+            break;
         }
-        opt++;
       }
+      opt++;
     }
-
-    const auto long_opts = reinterpret_cast<const struct ::option*>(opts);
-
-    int opt;
-    while ((opt = getopt_long(argc, argv, short_opts.c_str(), long_opts, nullptr)) != -1) {
-      if (true) {
-        // TODO
-      }
-    }
-
-    argc -= optind;
-    argv += optind;
-#endif /* HAVE_GETOPT_LONG */
   }
 
-  args.reserve(argc - 1);
-  for (int i = 1; i < argc; i++) {
+  int opt;
+#ifdef HAVE_GETOPT_LONG
+  const auto long_opts = reinterpret_cast<const struct ::option*>(opts);
+  while ((opt = getopt_long(argc, argv, short_opts.c_str(), long_opts, nullptr)) != -1) {
+    if (callback) {
+      callback(opt, optarg);
+    }
+  }
+#else
+  while ((opt = getopt(argc, argv, short_opts.c_str())) != -1) {
+    if (callback) {
+      callback(opt, optarg);
+    }
+  }
+#endif /* HAVE_GETOPT_LONG */
+
+  argc -= optind;
+  argv += optind;
+
+  for (int i = 0; i < argc; i++) {
     args.push_back(argv[i]);
   }
 }
