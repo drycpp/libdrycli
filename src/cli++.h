@@ -7,6 +7,7 @@
  * libcli++
  */
 
+#include "cli++/environment.h"
 #include "cli++/feature.h"
 #include "cli++/module.h"
 #include "cli++/program.h"
@@ -17,9 +18,8 @@
 #include <vector> /* for std::vector */
 
 namespace cli {
-  using exit_code   = int; // TODO: make this into an enum.
-  using arguments   = std::vector<std::string>;
-  using environment = std::map<std::string, std::string>;
+  using exit_code = int; // TODO: make this into an enum.
+  using arguments = std::vector<std::string>;
 }
 
 #endif /* CLIXX_H */
