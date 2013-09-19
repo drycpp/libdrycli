@@ -4,10 +4,10 @@
 #define CLIXX_ARGUMENTS_H
 
 #include <string> /* for std::string */
-#include <vector> /* for std::vector */
+#include <deque>  /* for std::deque */
 
 namespace cli {
-  using arguments = std::vector<std::string>;
+  using arguments = std::deque<std::string>;
 }
 
 #endif /* CLIXX_ARGUMENTS_H */
