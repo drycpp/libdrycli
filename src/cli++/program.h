@@ -53,7 +53,7 @@ public:
   /**
    * Copy assignment operator.
    */
-  program& operator=(program other) noexcept = delete;
+  program& operator=(const program& other) noexcept = delete;
 
   /**
    * Move assignment operator.

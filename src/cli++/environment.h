@@ -37,7 +37,7 @@ public:
   /**
    * Copy assignment operator.
    */
-  environment& operator=(environment other) noexcept = delete;
+  environment& operator=(const environment& other) noexcept = delete;
 
   /**
    * Move assignment operator.
