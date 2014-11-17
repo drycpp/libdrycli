@@ -1,0 +1,24 @@
+/* This is free and unencumbered software released into the public domain. */
+
+#ifndef DRY_CLI_VERSION_H
+#define DRY_CLI_VERSION_H
+
+#include <string> /* for std::string */
+
+#define DRY_CLI_VERSION_STRING "@PACKAGE_VERSION@"
+#define DRY_CLI_VERSION_MAJOR  @PACKAGE_VERSION_MAJOR@
+#define DRY_CLI_VERSION_MINOR  @PACKAGE_VERSION_MINOR@
+#define DRY_CLI_VERSION_PATCH  @PACKAGE_VERSION_PATCH@
+
+namespace dry {
+  namespace cli {
+    namespace version {
+      const std::string string = DRY_CLI_VERSION_STRING;
+      const short major = DRY_CLI_VERSION_MAJOR;
+      const short minor = DRY_CLI_VERSION_MINOR;
+      const short patch = DRY_CLI_VERSION_PATCH;
+    }
+  }
+}
+
+#endif /* DRY_CLI_VERSION_H */

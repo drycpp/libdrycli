@@ -1,6 +1,6 @@
-lib_LTLIBRARIES = libcli++.la
+lib_LTLIBRARIES = libdrycli.la
 
-libcli___la_SOURCES =     \
+libdrycli_la_SOURCES =    \
   environment.cc          \
   extern.cc               \
   feature.cc              \
@@ -9,7 +9,7 @@ libcli___la_SOURCES =     \
   program.cc              \
   version.cc
 
-base_pkgincludedir = $(includedir)/cli++
+base_pkgincludedir = $(includedir)/dry/cli
 
 base_pkginclude_HEADERS = \
   arguments.h             \

@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef CLIXX_EXTERN_H
-#define CLIXX_EXTERN_H
+#ifndef DRY_CLI_EXTERN_H
+#define DRY_CLI_EXTERN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -11,4 +11,4 @@ extern "C" {
 } /* extern "C" */
 #endif
 
-#endif /* CLIXX_EXTERN_H */
+#endif /* DRY_CLI_EXTERN_H */

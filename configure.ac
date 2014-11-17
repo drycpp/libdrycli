@@ -16,13 +16,13 @@ m4_define([VERSION_STRING],
   m4_esyscmd([git describe --dirty --always | tr -d '\n']))
 
 dnl Define package information:
-AC_INIT([libcli++], [VERSION_STRING],
-  [arto@bendiken.net], [libcli++],
-  [https://github.com/datagraph/libcli])
+AC_INIT([libdrycli], [VERSION_STRING],
+  [arto@bendiken.net], [libdrycli],
+  [https://github.com/dryproject/libdrycli])
 
 dnl Configure Autoconf:
 AC_CONFIG_HEADERS([src/config.h])
-AC_CONFIG_SRCDIR([src/cli++.h])
+AC_CONFIG_SRCDIR([src/dry/cli.h])
 AC_CONFIG_AUX_DIR([etc/aclocal])
 AC_CONFIG_MACRO_DIR([etc/aclocal])
 AC_CONFIG_LIBOBJ_DIR([lib])
@@ -93,10 +93,10 @@ AC_CHECK_FUNCS_ONCE([getopt getopt_long])
 dnl Check for system services:
 
 dnl Generate output:
-AC_CONFIG_FILES([Makefile lib/Makefile src/Makefile src/cli++/Makefile test/Makefile])
+AC_CONFIG_FILES([Makefile lib/Makefile src/Makefile src/dry/Makefile src/dry/cli/Makefile test/Makefile])
 AC_SUBST([PACKAGE_VERSION_MAJOR], ["VERSION_MAJOR"])
 AC_SUBST([PACKAGE_VERSION_MINOR], ["VERSION_MINOR"])
 AC_SUBST([PACKAGE_VERSION_PATCH], ["VERSION_PATCH"])
-AC_CONFIG_FILES([src/cli++/version.h])
+AC_CONFIG_FILES([src/dry/cli/version.h])
 AH_BOTTOM([#include "libcompat.h"])
 AC_OUTPUT

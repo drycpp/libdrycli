@@ -1,14 +1,16 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef CLIXX_PROGRAM_H
-#define CLIXX_PROGRAM_H
+#ifndef DRY_CLI_PROGRAM_H
+#define DRY_CLI_PROGRAM_H
 
 #include "arguments.h"
 #include "environment.h"
 #include "option.h"
 
-namespace cli {
-  class program;
+namespace dry {
+  namespace cli {
+    class program;
+  }
 }
 
 /**
@@ -16,7 +18,7 @@ namespace cli {
  *
  * @note Instances of this class are movable, but not copyable.
  */
-class cli::program {
+class dry::cli::program {
 public:
   /**
    * Default constructor.
@@ -72,4 +74,4 @@ public:
   arguments args;
 };
 
-#endif /* CLIXX_PROGRAM_H */
+#endif /* DRY_CLI_PROGRAM_H */

@@ -15,7 +15,7 @@
 #include <getopt.h> /* for getopt_long() */
 #endif
 
-using namespace cli;
+using namespace dry::cli;
 
 program::program(int argc, char* argv[]) noexcept {
   assert(argc > 0);

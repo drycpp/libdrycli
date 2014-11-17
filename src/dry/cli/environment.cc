@@ -9,7 +9,7 @@
 #include <cassert> /* for assert() */
 #include <cstdlib> /* for std::getenv() */
 
-using namespace cli;
+using namespace dry::cli;
 
 environment::environment() noexcept
   : _getenv(std::getenv) {

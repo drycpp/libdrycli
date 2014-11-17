@@ -8,16 +8,16 @@
 
 #include <getopt.h> /* for struct option */
 
-using namespace cli;
+using namespace dry::cli;
 
-static_assert(sizeof(cli::option) == sizeof(struct ::option),
-  "sizeof(cli::option) != sizeof(struct ::option)");
+static_assert(sizeof(dry::cli::option) == sizeof(struct ::option),
+  "sizeof(dry::cli::option) != sizeof(struct ::option)");
 
 static_assert(static_cast<int>(option_argument::none) == no_argument,
-  "cli::option_argument::none != no_argument");
+  "dry::cli::option_argument::none != no_argument");
 
 static_assert(static_cast<int>(option_argument::required) == required_argument,
-  "cli::option_argument::required != required_argument");
+  "dry::cli::option_argument::required != required_argument");
 
 static_assert(static_cast<int>(option_argument::optional) == optional_argument,
-  "cli::option_argument::optional != optional_argument");
+  "dry::cli::option_argument::optional != optional_argument");

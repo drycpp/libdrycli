@@ -1,10 +1,12 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef CLIXX_ENVIRONMENT_H
-#define CLIXX_ENVIRONMENT_H
+#ifndef DRY_CLI_ENVIRONMENT_H
+#define DRY_CLI_ENVIRONMENT_H
 
-namespace cli {
-  class environment;
+namespace dry {
+  namespace cli {
+    class environment;
+  }
 }
 
 /**
@@ -12,7 +14,7 @@ namespace cli {
  *
  * @note Instances of this class are movable, but not copyable.
  */
-class cli::environment {
+class dry::cli::environment {
 public:
   /**
    * Default constructor.
@@ -48,4 +50,4 @@ protected:
   char* (*_getenv)(const char* name) {nullptr};
 };
 
-#endif /* CLIXX_ENVIRONMENT_H */
+#endif /* DRY_CLI_ENVIRONMENT_H */
